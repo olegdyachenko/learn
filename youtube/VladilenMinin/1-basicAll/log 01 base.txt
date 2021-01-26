@@ -1,0 +1,164 @@
+use camelCase
+
+use const if don`t change
+use let ZAMESTO var, TK var is very old construction
+
+use '' or "" all time, becose is it beautiful. if '' all time '', if use "" all time use ""
+
+then create boolean(true,false) or number, don`t use ''. 
+    Example: 
+        let exampleFirst = 15
+        let exampleSecond = true
+
+really, you dont use ;, then cancel your stroek code. if you use ;, this is not error, but OTSUTSTVIE is not error. Simple clear code
+
+dont create variable use special word (if) or number PERVIMI (1name dont error, name1 don`t error!)
+
+contactination
+    Example:
+        console.log('Name Man ' + exampleFirst)
+    then use conctruction 
+        console.log('Name Man ' + exampleFirst + ' , and age ' + age)
+    really you use  console.log('Name Man ' + exampleFirst + ' , and age ' + age.toString()) becose you PRIVODISH age to stroke, A NE number
+    number to console log show another color
+
+alert = VIVOD in browser, this function don`t use nodeJS, or mobile, or desktop, only web!
+prompt( message: 'print your name') in real cumback something variable POETOMY you need create PEREMENNYU
+    Example: const name = prompt( message: 'print your name')
+
+НЮАНС, напишу по русски. Короче есть операторы стандартные. но у них есть приоритеты, например конструкция 
+    let age = 5
+    console.log(age++)
+выведет 5, потому что сначала приоритет вывода age, а уже потом ++, при этом сама переменная изменится, т.е. она станет 6, просто выведется 5, а потом прибавится. 
+А вот если сделать так,
+    console.log(++age)
+то выведется 6, потому что он сначала прибавит, и уже потом выведет. При этом в обоих случаях переменная будет равна 6-)
+
+c = 5; c = c + 5; === c += 5
+
+c += 5
+c -= 5
+c *= 5
+c /= 5
+
+let age = 5
+console.log(typeof age)
+
+Типы данных
+    string (let name = 'Oleg')
+    number (let age = 25)
+    boolean (let something = true)
+    undefined (let x) - const не может быть undefined, он всегда должен быть со значением по умолчанию
+    null (херня какая-то) имеет баг, если написать console.log(typeof null) то нам напишут object, с этим нужно просто смириться=)
+
+
+пример переменной boolean isFullAge = somethingA - somethingB >= fullSomething - т.е. если хочешь булеан, дай ей имя is...
+
+mde operator precedence - лучшая документация от mozilla developer N???. Короче вводим mde и переменную и получаем офигенную документацию по языку
+const age = 5 // 5,4,3
+if (age === 5){
+    console.log('ravno 5')
+} else if (age === 3){
+    console.log('ravno 3')
+} else{
+    console.log('a nichemy ne ravno')
+}
+
+
+
+const isReady = true
+
+if (isReady === true){
+    console.log('all good')
+}
+
+это тоже самое что, if(isReady){console.log('all good')}
+а если вот так
+
+if (isReady === true){
+    console.log('all good')
+} else{
+    console.log('dont')
+}
+
+то тоже самое равно вот такой записи 
+isReady ? console.log('all good') : console.log('dont')
+эта конструкция называется тернарное выражение 
+
+
+Логические операторы
+
+Логическое И &&
+Логическое ИЛИ ||
+Логическое НЕ !
+
+
+function calculateAge (year) {
+    return 2020 - year
+}
+
+function logInfoAbout(name, year) {
+    const age = calculateAge(year)
+
+    if (age > 0) {
+        console.log('name man ' + name + 'now old age ' + age)
+    } else(
+        console.log('не может быть отрицательного числа)
+    )
+}
+
+logInfoAbout('oleg', 29)
+
+
+
+
+МАССИВЫ
+
+const cars = ['mazda','mers','ford']
+console.log(cars)//выведет значение всего массива
+console.log(cars[1])//выведет только первое значение
+
+console.log(cars.length)//показывет длину массива
+
+cars[0] = 'another'//пофигу, что это константа, в массивах константах можно менять значения!
+cars[3] = 'newZnach'//а вот так добавляем в массив значеиня
+cars[cars.length] = 'new new'//тоже добавит в конце массива, ведь массив всегда с нуля=)
+
+
+классические циклы, в JS всегда через let задается i
+
+for (let i = 0; i < cars.length; i++){
+    //console.log(i)
+    const car = car[i]
+    console.log(car)
+}
+
+вариант попроще
+
+for (let car of cars){
+    console.log(car)
+}
+
+
+ОБЪЕКТЫ это другими словами группировка. Если массив это просто по значению, то в объектах могут быть функции, и что угодно вообще. Расширенная версия массивов=)
+
+const person = {
+    name = 'oleg',
+    family = 'dyachenko',
+    year = 1991,
+    lang = ['ru', 'en', 'de'],
+    isMarried = true,
+    greet function(){
+        console.log('greet')
+    }
+}
+
+
+чтобы вызвать, нужно писать так console.log(person.name), получим имя, или так console.log(person['family]), либо я могу переменной присвоить значение, например const key = 'year', и дальше обратиться   console.log(person[key])
+самое главное, что можно изменять значения
+например, person(isMarried) = true, это присвоит мне новое значение, или вообще добавить новый ключ в этот объекта
+    person.isProgrammer = true, и так мы добавили к нашему объекту это свойство
+
+
+
+    Остановился на урок 4, 1:43:50 https://www.youtube.com/watch?v=Bluxbh9CaQ0

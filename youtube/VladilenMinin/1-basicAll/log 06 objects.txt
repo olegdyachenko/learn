@@ -1,0 +1,127 @@
+const person = {
+    name: 'Oleg',
+    age: 29,
+    isProgrammer: false,
+    languages: ['ru', 'en', 'de'],
+    // 'complex key': 'Complex Value',//название переменное объекта из двух строк, можно и так
+    // ['key_' + (1 + 3)]: 'Computed Key',// зачем то можно и так называть переменную. т.е. мы даем ей имя key4, через работу сложения. Наверное тоже для библиотек или чего-то еще сложного
+    greet(){
+        console.log('gree from person')// это уже называется методом. Т.к. функция внутри объекта. вызывается как person.greet, можно писать через function, но профи пишут так
+    },
+    info(){
+        console.info('info for man:', this.name)// вот тоже самое. console.info('info for man:', person.name) ДРУГИМИ СЛОВАМИ ЭТО ЭТОТ ОБЪЕКТ. ИМЕННО ЭТОТ
+    }   
+}
+// console.log(person.name)//покажи имя
+// const ageKey = 'age'
+// console.log(person[ageKey])//присвой переменной ключ и выведи возраст
+// console.log(person['complex key'])//покажи по ключу complex key
+// person.greet()//выполни метод, что является функцией в объекте 
+
+// person.age++//прибавь +1 к возрасту
+// person.languages.push('by')//добавь в массив языки новый язык by
+// person['key_4'] = undefined// присвой значение undefined
+// delete person['key_4']//удали ключ из объекта
+// console.log(person)
+
+//деструктуризация
+//прошлый способ
+// const name = person.name
+// const age = person.age
+// const languages = person.languages
+// const {name,age,languages} = person // одна и таже запись, как выше 3 строки
+
+// const {name, age: personAge, languages} = person // параметр age присвоили переменной personAge. Так то там еще можно дать ей значение по умолчанию, если сделаем вот так age: personAge = 10, но это высший пилотаж, пока рано=)
+
+// console.log(name, personAge, languages)
+
+
+
+//привычные массивы, и объекты, это разное. Например циклы перебора просто так в объекте сделать нельзя. Для этого используют другое
+//связано это с каким то прототипом, в который обычный цикл, может забежать и выдать не совсем то, что нужно. 
+
+// for (let key in person) {
+//     if (person.hasOwnProperty(key)) {
+//         console.log('key', key)
+//         console.log('value', person[key])
+//     }
+// }
+
+//но есть современные методы
+// const keys = Object.keys(person)//получаем на выходе массив
+// keys.forEach((key)=>{
+//         console.log('key', key)
+//         console.log('value', person[key])
+// })
+
+
+//тема Contex
+// person.info()
+
+//this надо использоватЬ, т.к. если мы будем у метода, вызывать методы, то мы можем получить немного не то, что хотим. а this, позволяет нам передать именно ту часть кода, которую мы хотим увидеть у метода, метод которого вызывали=)
+
+// const logger ={
+//     keys() {
+//         console.log('Objest Keys: ', Object.keys(this)) //вот если тут написать person, тогда ниже выведется не ключ, а весь объект и все его ключи. О как 
+//     }
+// }
+
+// const bound = logger.keys.bind(person)// мы пользуемся объектом keys, который ничего не знает про person, который делает лог keys какого-то, и с помощью bind, мы в этом методе this, будем тем объектом, который мы сами передадим. В нашем случае это person.
+// bound()
+
+// logger.keys.call(person)// отличие от верхнего в том, что он сразу вызывает функцию, а не куда ее не передает.
+
+
+// усложним задачу
+
+// const logger ={
+//     keys() {
+//         console.log('Objest Keys: ', Object.keys(this)) //вот если тут написать person, тогда ниже выведется не ключ, а весь объект и все его ключи. О как 
+//     },
+
+//     keysAndValues(){
+//         Object.keys(this).forEach(key => {
+//             console.log(`"${key}": ${this[key]}`)
+//         })
+//     }
+// }
+
+// logger.keysAndValues.call(person)
+
+// на 4.15.08 в видео автор, объясняет почему в функции выше нельзя использовать слово function, типо когда мы используем это слово, то создается еще какой-то контектс, и конструкция this работает не так, как мы ожидаем. Чтобы избежать этой проблемы, нужно либо перед функцией явно объявить this, присвоив его переменной, к которой потом обращаться, либо какой-то в конце еще элемент добавить. Короче сильно хочешь, вникай потом
+
+// и еще одно усложнение. Добавим в нашу функцию выше, какие-то разделители, которым можно передавать значения, и в зависимости от них, мы получаем другой результат. 
+
+const logger ={
+    keys() {
+        console.log('Objest Keys: ', Object.keys(this)) 
+    },
+
+    keysAndValues(){
+        Object.keys(this).forEach(key => {
+            console.log(`"${key}": ${this[key]}`)
+        })
+    },
+
+    withParams(top = false, between = false, bottom = false) {
+        if (top) {
+            console.log('--------- Start --------')
+        }
+        Object.keys(this).forEach((key, index, array) => { //функция forEach принимает на самом деле 3 параметра
+            console.log(`"${key}": ${this[key]}`)
+            if (between && index !== array.length - 1) {//&& index !== array.length - добавление вот этой конструкции, позволяет убрать лишнее добавление кода ======== в консоль логе
+                console.log('===============')
+            }
+        })
+
+        if (bottom) {
+            console.log('--------- End --------')
+        }
+    }
+}
+
+// logger.withParams.call(person, true, true, true) // принимает неограниченное кол-во параметров
+logger.withParams.apply(person, [true, true, true]) // принимает только два, и второй это массив
+
+
+

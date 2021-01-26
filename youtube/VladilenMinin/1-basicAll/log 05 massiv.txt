@@ -1,0 +1,117 @@
+const cars = ['BMW', 'Mazda', 'Ford', 'Txt', 'Opel']
+const people = [
+    {name: 'oleg', budget: 4200},
+    {name: 'vlad', budget: 1700},
+    {name: 'fedor', budget: 3500},
+]
+const fib = [1, 1, 2, 3, 5, 8, 13]
+//const fib = [1, 1, 2, 3, 5, 8, 13, 'stroke', true, {}]//хранить тут можно что угодно
+
+// function
+function test(){
+
+}
+
+//Method
+// cars.push('Kira')//добавить в конец новое значение
+// cars.unshift('Lada')//добавить в начало массива
+// console.log(cars)//посмотреть, что у нас в массиве
+
+// const firstElem = cars.shift() // удаляет первый элемент массива, но! еще он возрвращает это значение, поэтому его можно занести в переменуню
+// const lastElem = cars.pop()// тоже самое, только в конце
+
+// cars.reverse()//возвращает нам массив и переворачивает его  
+
+// const text = 'hello, i am fine'
+// const reverseText = text.split('')// разделяет текст по символу, если пустая строка, то посимвольно, если указать запятую, то по запятой и так далее
+// console.log(reverseText)
+
+// //а если мы хотим перевернуть эту строчку и привести ее к тексту, то
+// const reverseText2 = text.split('').reverse().join('')//последний метод join склеивает массив в строку по указанному разделителю, т.е. хотим через пробелм, указали пробел, указали пустоту, получили пустоту
+
+
+// const index = cars.indexOf('Mazda')// возвращает индекс в массиве, нужного элемента
+// console.log(cars[index])//обратили к индексу и вывели его
+// cars[index] = 'NEW'//изменили указанный индекс на что-то
+// console.log(cars)
+
+// //функция ниже, найдет значение в объекте, у кого бюджет равен 3500 и вернет индекс этого человека
+// const index = people.findIndex(function(person){
+//     return person.budget === 3500
+// })
+
+// console.log(index)//выведет индекс
+// console.log(people[index])//выведет этого человека
+
+// //конечно, можно использовать сразу метод find и он выведет сразу мне человека
+// const person = people.find(function(person){
+//     return person.budget === 3500
+// })
+
+// console.log(person)
+
+//пример ниже показывает нам, как это работает. Мы вызываем массив, которые перебирает наши значения. аналог console.log(people)
+// console.log(people)
+// for (const person of people){
+//     console.log(person)
+// }
+
+// а вот конструкция ниже, уже прям выведет, что нам нужно, что мы делали выше
+
+// let findedPerson
+// for (const person of people){
+   
+//     if (person.budget === 3500){
+//         findedPerson = person
+//     }
+// }
+// console.log(findedPerson)
+
+//и вот код ниже, это тоже самое, что выше. 
+// const person2 = people.find(person => person.budget === 3500)// вот эта штука назывется лямбда функция. и это типо продвинутая практика написания кода
+// console.log(person2)
+
+
+
+// console.log(cars.includes('BMW'))//а есть ли там такая машина?
+
+// //например, нам нужно взять массив и возвести каждое значеине в квадрат
+
+// const pow2Fib = fib.map(num => num ** 2)
+// console.log(pow2Fib)
+
+// а теперь мы вынесем эту логику в переменную
+
+// const pow2 = num => num ** 2
+// const pow2Fib = fib.map(pow2)//в этой строчке, четко видно, что мы делаем, и мы сюда функцию не вызываем, а просто передаем
+// console.log(pow2Fib)
+
+// и мыже можем работать с этой конструкцией=)
+
+// const pow2 = num => num ** 2
+// const sqrt = num => Math.sqrt(num)
+
+// const pow2Fib = fib.map(pow2).map(sqrt)
+// console.log(pow2Fib)
+
+// а если мы хотим возвести в степень и отфильтровать, то можно так. 
+
+// const pow2 = num => num ** 2
+// const pow2Fib = fib.map(pow2)
+// const filterNumbers = pow2Fib.filter(num => num > 20)
+
+// console.log(pow2Fib)
+// console.log(filterNumbers)
+
+
+// и еще один пример, сложный для понимания начинающих, но тем не менее важный метод. Reduse
+//мы хотим просуммировать всех людей, у кого бюджет больше 2000 рублей. на видео это 3:41:44
+
+const allBudget = people
+    .filter(person => person.budget > 2000)
+    .reduce((acc, person) => {
+        acc += person.budget
+        return acc
+    }, 0)
+
+console.log(allBudget)

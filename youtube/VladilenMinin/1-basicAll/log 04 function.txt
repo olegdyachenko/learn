@@ -1,0 +1,86 @@
+//1 Function Declaration
+
+function hello(name){
+    return console.log('Привет ' + name)
+}
+
+//function Expression, если функция без имени, но в переменной. значит она анонимная, но ее можно создать и как обычную. тут пофигу. 
+//важно усвоитЬ, что Declaration метод, позволяет использовать функцию в любой части кода. А вот второй метод, только сверху функция, снизу вызов
+
+
+// const halo = function(name){
+//     return console.log('Привет 2' + name)
+// }
+
+// hello('Lena')
+// halo('amam')
+
+// console.log(typeof halo)// нет такого типа данных, но для нашего удобсвта, сделали такой хак. 
+// console.dir(halo)//показать полную структуру функции, 
+
+// //2 Анонимные функции
+// //функция ниже задает интервал, и если мы доходим до 5, то останавливаем счетчик. Еще есть setTimeout
+// let counter = 0
+// const interval = setInterval(function(){
+//     if(counter === 5){
+//         clearInterval(interval)
+//     } else{
+//         console.log(++counter)
+//     }
+// },1000)
+
+//3 Стрелочные функции
+
+// function hello(name){//вот раз пример записи
+//     console.log('Привет ' + name)
+// }
+
+// const arrow = (name) => {//тоже самое
+//     console.log('Привет ' + name)
+// }
+
+// const arrow2 = name => console.log('Hello ' + name)//опять совершенно тоже самое
+// arrow2('Lids')
+
+
+// const pow2 = function(num){//еще один пример функции с возвратом значения
+//     return num ** 2
+// }
+
+// const pow3 = num => num ** 2//и снова тоже самое, очень сокращенный вариант записи, как тернарный if
+
+// console.log(pow2(5))
+// console.log(pow3(510))
+
+
+// // 4 параметры по умолчанию
+
+// const sum = (a = 40,b = a * 2) => a+b // в скобочках, это параметры по умолчанию, работают они только НАВЕРНОЕ в стрелочных функциях. И там можно задать параметры, который по умолчанию есть, если мы не передали никакого значения. Ибо если будет чего-то не передано, получится NaN
+
+// console.log(sum())
+
+// //а еще можно создать функцию, которая получает любое кол-во символов
+
+// function sumAll(...all){
+//     let result = 0
+//     for(let num of all){
+//         result += num
+//     }
+//     return result
+// }
+
+// console.log(sumAll(1,2,3,4,5,6,7,8,9,10))
+
+//5 Замыкания - условно, это когда одна функция, возвращает результат работы другой функции
+//т.е. мы можем создать функцию, которая один раз принимает параметр, и дальше мы с ним ничего сделать не сможем. т.к. все последюущие обращения. меняют данные уже во внутренней функции, не трогая "материнскую". Часто данный метод используют для защиты данных в библиотеках
+
+function member(name){
+    return function(lastName){
+        console.log(name + ' ' + lastName)
+    } 
+}
+
+const logWithLastName = member('Oleg')
+
+console.log(logWithLastName('Dyachenko'))
+console.log(logWithLastName('kuznecov'))

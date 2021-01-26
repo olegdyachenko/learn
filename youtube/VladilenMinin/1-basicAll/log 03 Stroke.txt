@@ -1,0 +1,59 @@
+const name = 'oleg'
+const age = 29
+
+const output = 'My name is ' + name + ', my age is ' + age + '.'//стандартная контактенация
+const output2 = `Hello, my name is ${name} and my age ${age}.`//иная версия, чтобы меньше + было и не запутаться
+const output3 = `Hello, my name is ${name} and my age ${age > 30 ? 'A' : 'B'}.`//иная версия, тернарная версия условия, по другому условия писать  нельзя
+
+
+console.log(output)
+console.log(output2)
+console.log(output3)
+
+еще можно вот так писать 
+
+const output4 = `
+
+<div> my block 1</div>
+<p>type p</p>
+
+`
+
+
+
+console.log(name.length)//длина строки
+console.log(name.toUpperCase())//верхний регистр
+console.log(name.toLowerCase())//нижний 
+console.log(name.charAt(2))//какой символ в позиции
+console.log(name.indexOf('гуш'))//есть ли строка, результат да есть с 4-ого символа
+console.log(name.indexOf('ар'))//есть ли строка, нет, и результат -1
+console.log(name.startsWith('ар'))//начинается ли с указанной строкиTRUE FALSE
+console.log(name.repeat(3))//повторить строку столько то раз
+console.log(name.trim())// отчистить пробелы
+console.log(name.trimLeft())// отчистить пробелы лево
+console.log(name.trimRight())// отчистить пробелы право
+
+
+
+
+
+Еще есть кусок нового синтаксиса, который стоит знать, используется для избегания ошибок
+Короче если в функцию передавать значения через обратную кавычку, то там массив получается и мы можем к этому массиву обращаться
+
+function logPerson(s,name,age){
+    if (age < 0) {
+        age = 'еще не родился'
+    }
+    return `${s[0]}${name}${s[1]}${age}${s[2]}`
+}
+
+const personName = 'dobrinya'
+const personName2 = 'Oleg'
+const personAge = 29
+const personAge2 = -10
+
+const output10 = logPerson`Name: ${personName}, oldage: ${personAge}!`
+const output11 = logPerson`Name: ${personName2}, oldage: ${personAge2}!`
+
+console.log(output10)
+console.log(output11)

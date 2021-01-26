@@ -1,0 +1,67 @@
+const hello = document.getElementById('hello')
+// console.log(hello)//просто выводит его в консоль
+// console.dir(hello)// показывает папку всех свойств блока
+// console.log(hello.id)//id name
+// console.log(hello.textContent)//text блока hello
+
+
+
+// const hello2 = document.getElementsByTagName('h2')// устаревшие способы
+// const hello3 = document.getElementsByClassName('h2-class')// устаревшие способы
+const hello3 = document.querySelector('.h2-class')// возвращает всегда первый попавшийся!!!
+// const hello4 = document.querySelector('#sub-hello')// возвращает всегда первый попавшийся!!!
+const hello4 = document.querySelector('h2')// возвращает всегда первый попавшийся!!!
+
+const hello5 = hello4.nextElementSibling
+const h2List = document.querySelectorAll('h2')
+const hello6 = h2List[1]
+const hello7 = h2List[h2List.length - 1]
+// console.log(hello3)
+// console.log(hello4)
+console.log(hello7)
+
+setTimeout(() => {
+   addStyleTo(hello, 'text h1' )
+}, 1500)
+
+setTimeout(() => { 
+    addStyleTo(hello3, 'text h2 first', 'yellow', '2rem')
+ }, 2000)
+
+setTimeout(() => {
+    addStyleTo(hello7, 'text h2 second', 'blue')
+ }, 2500)
+
+function addStyleTo(node,text, color = 'red', fontSize){
+    node.textContent = text// а вот так мы просто взяли и изменили текст 
+    node.style.color = color // изменить цвет текста
+    node.style.textAlign = 'center' // изменить расположение по центру
+    node.style.backgroundColor = 'black'
+    node.style.padding = '2rem'
+    //falsy: '', undefined, null, 0, false
+    if(fontSize) {
+        node.style.fontSize = fontSize
+    }
+}
+
+
+//искать mdn mouse event, там куча полезной инфы https://developer.mozilla.org/ru/docs/Web/events
+ 
+// hello.onclick = () =>{
+//     console.log('click')
+// }
+
+hello.onclick = () =>{
+    if (hello.style.color === 'red'){
+        hello.style.color = '#000'
+        hello.style.backgroundColor = '#fff'
+    } else {
+        hello.style.color = 'red'
+        hello.style.backgroundColor = '#000'
+    }
+}
+
+
+// там дальше он делает пример для ссылки. Чтобы ее не перезатерали. 5.33.00. Мы можем перехватить клик по ссылке. Дальше он подключает свойство event, которое показывает просто колоссальнео кол-во данных. Был ли нажат cntrl
+// дальше мы можем перехватывать значение нажатие и чего-то с ним сделать. И также мы можем выдернуть ссылку и програмно перейти на нее. все это нужно просто практиковать
+// https://www.youtube.com/watch?v=Bluxbh9CaQ0
