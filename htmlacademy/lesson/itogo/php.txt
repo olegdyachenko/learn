@@ -1,0 +1,29 @@
+статья для понимания - https://htmlacademy.ru/blog/education/what/php-what-for
+в учебник по PHP - https://htmlacademy.ru/tutorial/php/basics
+
+альтернатива для require, include - https://www.php.net/manual/ru/function.include.php
+
+https://www.gloevk.ru/product.php?product_id=1
+
+
+require('components/company_info.php'); - Добавить кусок кода на страницу
+
+// - комментарии и /**/
+
+
+$product = 'люстра'; // Объявили переменную $product и присвоили значение
+
+echo($product);
+
+
+<img src="<?php echo($img_url); ?>">  ===  <img src="<?= $img_url ?>">
+
+$_GET['product_id'] - получить значение _GET
+
+
+
+
+if ($temperature > 20) {
+  keks_log('Погода хорошая!')
+  // Эти действия выполнятся, если условие в круглых скобках истинно
+}

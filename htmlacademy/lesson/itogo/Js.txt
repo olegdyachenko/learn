@@ -1,0 +1,388 @@
+ТЕОРИЯ
+    Подключаем всегда перед закрывающим </body>. Иначе большая часть кода будет недоступна.
+
+    document.querySelector('селектор'); - элемент, метод(селектор);
+
+    Новая строка правильно работает в большинстве случаев, а точка с запятой — всегда. Поэтому лучше ставить точку с запятой в конце каждой инструкции.
+
+    JavaScript чувствителен к регистру. Если написать classlist.remove, метод не сработает.
+
+    скрипт не меняет исходный файл с разметкой, но, выполняя инструкции, меняет страницу прямо в браузере пользователя.
+
+    Имя переменной может быть почти любым, но не должно начинаться с цифры, а из спецсимволов разрешены только '_' и '$'.
+
+    комментарии
+
+        // Однострочные комментарии.
+
+        /*
+        И многострочные.
+        Они могут отключить сразу несколько строк кода.
+        */
+
+    В CSS за размер шрифта отвечает свойство font-size. В JavaScript нельзя использовать дефисы в названиях свойств, вместо этого для разделения слов используется «верблюжий» стиль. Например:
+        CSS	JаvaScript
+        font-size	fontSize
+        background-color	backgroundColor
+        border-left-width	borderLeftWidth
+
+ПРАКТИКА
+
+    <script src="адрес_файла"></script>
+
+
+    let variableName = 'Я значение переменной!';
+
+
+    console.log('Привет от JavaScript!');
+    
+    document.querySelector('.page'); - найти элемент с классом page
+
+    document.querySelector('.page').classList.remove('light-theme'); - Метод убирает с элемента тот класс, который указан в скобках. Обратите внимание, что мы не ставим точку перед именем класса в classList.remove. Это не селектор, JavaScript и так знает, что мы имеем дело с классом.
+
+        let peremennaya = document.querySelector('.page');
+        peremennaya.classList.remove('light-theme');
+
+    document.querySelector('.page').classList.add('dark-theme') - добавляет
+
+
+
+    peremennaya.onclick = function() {
+        console.log('Клик!');
+    };
+
+    
+
+    элемент.classList.toggle('класс'); -Если класс у элемента есть, метод classList.toggle ведёт себя как classList.remove и класс у элемента убирает. А если указанного класса у элемента нет, то classList.toggle, как и classList.add, добавляет элементу этот класс.
+
+    let paragraph = document.querySelector('p');
+    console.log(paragraph.textContent); Свойство textContent хранит в себе текстовое содержимое элемента. Предназначено только для текста,
+
+    paragraph.textContent = 'Здесь был Кекс. Мяу!'; - перезапишем текст внутри параграфа
+
+
+    Обратите внимание, обработчик событий в данном случае добавляется не на кнопку, а на саму форму:
+
+    let someForm = document.querySelector('.some-form');
+    someForm.onsubmit = function() {
+        console.log('Форма отправлена!');
+    };
+        Обратите внимание, обработчик событий в данном случае добавляется не на кнопку, а на саму форму:
+
+    let form = document.querySelector('.subscription');
+    form.onsubmit = function(evt) {
+        // Инструкция ниже отменяет отправку данных
+        evt.preventDefault();
+        message.textContent = 'Форма отправлена!';
+
+    };
+
+
+    let input = document.querySelector('input');
+    console.log(input.value); - свойства value мы можем получить данные из этого поля ввода
+
+
+    paragraph.textContent = 'Вас зовут ' + 'инструктор Кекс';
+    console.log(paragraph.textContent); - контактенация
+
+    let name = 'Кекс';
+    paragraph.textContent = 'Вас зовут ' + name + '. Хорошего дня!';
+    console.log(paragraph.textContent);
+
+
+    let element = document.querySelector('p');
+    element.style.color = 'green'; - Добавить стиль прямо в тег
+
+    
+    // Находим выпадающий список
+    let select = document.querySelector('select');
+
+    // Добавляем списку обработчик событий
+    select.onchange = function () {
+    // Меняем цвет текста на выбранное значение
+    longread.style.color = select.value;
+    };
+
+
+    <input class="size-setting" type="range" min="8" max="48" step="1" value="14">
+
+    <output class="pixels">14</output>px
+
+
+    // Находим поле и элемент для вывода значения
+    let range = document.querySelector('input');
+    let output = document.querySelector('output');
+
+    // Добавляем полю обработчик событий
+    range.onchange = function () {
+    // Выводим значение на страницу
+    output.textContent = range.value;
+    }
+
+    let element = document.querySelector('p');
+
+    // Зададим абзацу размер шрифта 24px
+    element.style.fontSize = '24px';
+    longread.style.fontSize = sizeSetting.value + 'px';
+
+    !!!onchange и oninput - один в момент отпускания клика, второй в момент изменения значений!!!
+
+
+    <input class="password" type="password" required>
+    let input = document.querySelector('input');
+
+    // Сделаем input текстовым полем ввода
+    input.type = 'text';
+
+    // Проверяем, включён ли чекбокс
+    if (showPassword.checked) {
+    // Показываем пароль
+    } else {
+    // Прячем пароль
+    }
+
+    let input = document.querySelector('input');
+    securityBar.style.width = password.value.length * 10 + '%';
+    securityBar.style.width = 4 * 10 + '%'; // Результат: '40%'
+
+
+    let passLength = password.value.length;
+
+    if (passLength <= 5) {
+        securityBar.style.backgroundColor = 'red';
+    }
+
+    if (passLength <= 5) {
+    // Инструкции выполнятся, если истинно первое условие
+    } else if (passLength > 5 && passLength < 10) {
+    // Инструкции выполнятся, если истинно второе условие
+    }
+
+
+
+    heart.onclick = function () { //по клику выводи цифру и добавляет класс, или убирает его. 
+    likesNumber.textContent = counter;
+    heart.classList.toggle('added');
+    };
+
+    // Краткая запись
+    number += 2; // Значение переменной: 2
+    number -= 2; // Значение переменной: 0
+
+    Наш счётчик будет увеличиваться и уменьшаться на единицу. Это очень распространённая операция, и в JavaScript для неё есть особая запись.
+
+    // Увеличит число на 1
+    number++; // Значение переменной: 1
+
+    // Уменьшит число на 1
+    number--; // Значение переменной: 0
+
+    элемент.classList.contains('класс');  проверяем наличие класса
+
+    
+    // Увеличит значение на 1
+    likesNumber.textContent++;
+
+    // Уменьшит значение на 1
+    likesNumber.textContent--;
+
+
+    let paragraph = document.querySelector('p');
+    paragraph.append(' А разработчиком — ещё лучше!'); Метод append добавляет указанный в скобках элемент в конец элемента-родителя.
+
+
+    document.createElement('имя тега');
+    Мы создаём новый элемент на странице, к которой подключён скрипт,
+    let newElement = document.createElement('div');
+
+
+
+    // Создаём новый элемент
+    let newElement = document.createElement('div');
+
+    // Находим элемент-родитель
+    let parent = document.querySelector('.parent');
+
+    // Добавляем новый элемент в конец элемента-родителя
+    parent.append(newElement);
+
+    let commentForm = document.querySelector('.comment-form');
+    let commentList = document.querySelector('.comment-list');
+
+    commentForm.onsubmit = function (evt) {
+    evt.preventDefault();
+
+    };
+
+    let newComment = document.createElement('li');
+    commentList.append(newComment);
+
+
+
+    // Создаём новый абзац
+    let newElement = document.createElement('p');
+
+    // Меняем текстовое содержимое
+    newElement.textContent = 'Я новый абзац!';
+
+    // Добавляем класс
+    newElement.classList.add('some-text');
+
+    // Добавляем элемент на страницу
+    parent.append(newElement);
+
+    let input = document.querySelector('input');
+    let paragraph = document.querySelector('p');
+
+    // Записываем данные из поля ввода в текстовое содержимое элемента
+    paragraph.textContent = input.value;
+
+    let elements = document.querySelectorAll('p');
+    Метод querySelectorAll находит все элементы на странице, 
+
+    let elements = document.querySelectorAll('p');
+
+    console.log(elements[0]); // Выведет первый элемент коллекции
+    console.log(elements[1]); // Выведет второй элемент коллекции
+
+    <div data-cat-name="Кекс">
+    let element = document.querySelector('div');
+    console.log(element.dataset.catName); // Выведет: Кекс
+
+
+
+    let elements = document.querySelectorAll('p'); // Находим все абзацы
+
+    for (let element of elements) {  // Создаём цикл и переменную
+    console.log(element);          // Выводим элементы в консоль
+    }
+    Если в коллекции elements два элемента, то JavaScript выполнит следующие инструкции:
+
+
+    let elements = document.querySelectorAll('p');
+
+    for (let element of elements) {
+    // Добавляем обработчик всем элементам по очереди
+    element.onclick = function () {
+        console.log('Вы кликнули на абзац!');
+    };
+    }
+
+    // Найдём поле ввода
+    let textarea = document.querySelector('textarea');
+
+    // Добавим обработчик событий
+    textarea.oninput = function () {
+    // Выведем данные из поля ввода
+    console.log(textarea.value);
+    };
+
+
+    console.log(text.length); // Выведет: 18
+
+    console.log(3 > 2); // Вернёт: true
+    console.log(1 > 2); // Вернёт: false
+
+
+    let button = document.querySelector('button');
+
+    // Блокирует кнопку
+    button.disabled = true;
+
+    // Разблокирует кнопку
+    button.disabled = false;
+
+
+    window.onscroll = function () {
+    console.log('Страница прокручена');
+    }
+
+    // Если мы на самом верху страницы
+    console.log(window.pageYOffset); // Выведет: 0
+
+    // Прокрутим страницу на 200px
+    console.log(window.pageYOffset); // Выведет: 200
+
+
+
+        
+    if (window.pageYOffset > 200) {
+    // Если условие истинно, показываем кнопку
+    }
+    Чтобы кнопка появилась, ей нужно добавить класс shown. Используем для этого метод classList.add. Затем прокрутим страницу и убедимся, что кнопка «Наверх» появляется.
+
+    window.onscroll = function () {
+    if (window.pageYOffset > 200) {
+        upButton.classList.add('shown');
+    }
+    };
+
+
+    / Прокрутит страницу на 100px вправо и на 50px вниз
+    window.scrollTo(100, 50);
+    Как работает window.scrollTo(100, 50)
+
+
+    У нас уже есть условная конструкция, которая проверяет величину прокрутки и добавляет кнопке класс, если прокручено больше 200px. Добавим в условную конструкцию альтернативную ветку else: если условие ложно, то используем метод classList.remove, чтобы убрать у кнопки класс shown.
+
+    'a' === 'a'; // Результат: true
+    'a' === 'b'; // Результат: false
+
+
+    // Находим выпадающий список
+    let select = document.querySelector('select');
+
+    // Выводим значение в консоль
+    console.log(select.value);
+
+    // Добавляем обработчик событий
+    select.onchange = function () {
+
+    // Выводим в консоль новое значение
+    console.log(select.value);
+    };
+
+
+
+    // До
+    for (let article of articles) {
+    if (article.dataset.category === 'cats') {
+        …
+    }
+    }
+
+    // После
+    filter.onchange = function () {
+    for (let article of articles) {
+        if (article.dataset.category === filter.value) {
+        …
+        }
+    }
+    };
+
+
+    'a' !== 'a'; // Результат: false
+    'a' !== 'b'; // Результат: true
+
+
+    // Когда значение фильтра 'all', проверка всегда возвращает true
+    if (article.dataset.category !== filter.value) {
+    article.classList.add('hidden');
+
+
+    // Если категория НЕ равна фильтру И фильтр НЕ равен «Все новости»
+    if (article.dataset.category !== filter.value && filter.value !== 'all') {
+    article.classList.add('hidden');
+    }
+
+
+    true && true;   // Результат: true
+    true && false;  // Результат: false
+    false && true;  // Результат: false
+    false && false; // Результат: false
+
+
+    true || true;   // Результат: true
+    true || false;  // Результат: true
+    false || true;  // Результат: true
+    false || false; // Результат: false

@@ -1,0 +1,258 @@
+ТЕОРИЯ
+
+  HTML
+    <тег атрибут1="значение1" атрибут2="значение2">
+
+  <!-- Это комментарий в HTML --> - это комментарии в HTML
+
+  https://dev.w3.org/html5/html-author/charref - мнемоники символов
+
+
+<!DOCTYPE HTML>
+  начало всего кода сайта. 
+
+<html lang="ru">
+
+<HEAD>
+  <meta charset="UTF-8">
+  <meta name="keywords" content="важные, ключевые, слова">
+  <meta name="description" content="краткое описание">
+
+  <title>Тренажёры — HTML Academy</title>
+  <link rel="stylesheet" href="style.css">  - это мы подключаем стили
+
+
+
+<BODY>
+
+  <header> Вводную часть страницы, которую чаще называют «шапкой»
+    <nav>
+      Первый пост, второй пост, архив постов
+        Например, небольшой блок со вспомогательными ссылками в подвале сайта. Такой блок внутри тега <footer> не нужно дополнительно оборачивать в тег <nav>.
+    </nav>    
+  </header>
+
+
+  <main> - используется 1 раз.выделяет основное содержание страницы, которое  не повторяется на других страницах. если у них нет специального атрибута hidden.
+
+    <section>, который обозначает крупный смысловой (или «логический») раздел. Как понять, что раздел смысловой? Если вы можете дать ему имя, описывающее его содержание или назначение, то это точно он.
+      Небольшая подсказка как отличать смысловые или логические разделы от структурных разделов. Логический раздел вы можете осмысленно назвать одним словом или словосочетанием: «программа обучения», «каталог», «наши преимущества». Если же в голову приходят названия, которые указывают на его положение на странице («шапка», «подвал», «левая колонка»), либо перечисления («новости и галерея», «фильтры и товары»), в таком случае раздел структурный и тег <section> для него не подходит.
+
+       <article>, который обозначает цельный, законченный и самостоятельный фрагмент информации.
+        Тег <article>, в отличие от <section>, можно вырвать из одного места и вставить в другое (на другую страницу сайта или на другой сайт), и смысл содержимого тега при этом не потеряется. Примеры: статья, пост в блоге, сообщение на форуме и так далее.
+
+        Теги <section> можно использовать внутри <article>, если там нужно выделить отдельные смысловые блоки.
+
+        Точно так же можно использовать <article> внутри <section>, если в логическом разделе документа содержатся независимые контентные блоки.
+
+        <p> - абзац
+        <p class="feature-furniture">…</p>
+
+        <ul>
+          <li>Элемент списка</li>
+        </ul>
+
+        <ol start="3" reversed> - начать с 3, задом наперед
+          <li>Я первый и только первый пункт</li>
+        </ol>
+            type="1: десятичное число;
+                  a: буквы латинского алфавита в нижнем регистре;
+                  A: буквы латинского алфавита в верхнем регистре;
+                  i: римские цифры в нижнем регистре;
+                  I: римские цифры в верхнем регистре.
+
+
+        <dl> (сокращение от «description list») обозначает сам список описаний;
+        <dt> (сокращение от «description term») обозначает термин;
+        <dd> (сокращение от «description definition») обозначает описание или 
+
+
+        <dl>
+          <dt>HTML</dt>
+          <dd>Язык гипертекстовой разметки</dd>
+          <dt>CSS</dt>
+          <dd>Каскадные таблицы стилей</dd>
+          <dd>Язык для оформления HTML-документов</dd>
+        </dl>
+
+        <pre>
+          любое форматирование текста. Переносы и прочее
+        </pre>
+
+        <code>
+          моноширинном шрифте (все буквы одного размера)
+        </code>
+
+        <q cite="ИСТОНЧНИК URL">
+          цитата <cite>автор цитаты</cite>
+        </q>
+
+        <blockquote>
+          тоже самое, что и q, только можно много строк вставлять. Цитата стихотворения. 
+        </blockquote>
+
+        <sup></sup> - ВЕРХНИЙ ИНДЕКС
+        <sub></sub> - НИЖНИЙ ИНДЕКС
+
+        <time datetime="2016-11-18T09:54">09:54 утра</time>
+
+        <em> определяет текст, на который сделан особый акцент </em>
+        <i> применяется для обозначения текста, который отличается от окружающего, Или интонационно</i>
+
+        <strong> ВАЖНОСТЬ выделенного текста. </strong>
+        <b> привлечение внимания </b>
+
+        <del datetime=""> выделяет текст, который был удалён
+        <ins datetime=""> выделяет текст, который был добавлен
+
+        div - Блочный
+        span - строчный
+
+
+        <a href="" >fjdsklaf;jdsk</a>
+          download - сразу скачать
+          rel="noopener" - игнорировать скрипты с другйо страницы
+          title="" - подпись
+          _self — ссылки открываются в той же вкладке,
+          _blank ссылки открываются в новой вкладке
+
+        <a href="#part1">Глава 1</a> - якорь
+          <p id="part1"> - куда ссылается
+
+        с а есть нюансы, когда и делаем слайдеры, у последнего надо удалять href. Читай 06htmlpart4.txt 227 строка
+
+        
+
+
+        <figure>
+          Схема, график, диаграмма или код
+          <figcaption>Подпись к содержимому</figcaption>
+        </figure>
+
+
+
+
+        <h1> - нельзя вкалдывать в <p>, только один на странице. В самом верху.
+        <h2>
+        <h3>
+        <h4>
+        <h5>
+        <h6>
+
+
+        <img src="keks.png" width="200" height="100"> - добавить изображение
+
+        <article>
+
+        <aside> включает в себя дополнительное содержание, не связанное напрямую с основным.
+
+        </aside>
+
+
+        <table cellspacing="">
+          <caption>Текст</caption>
+          <tr>
+            <th></th>
+          </tr>
+          <tr>
+            <td colspan="" rowspan=""></td>
+        </table>
+
+          table {
+            border-collapse: collapse;
+            vertical-align: значение;
+            text-align: значение;
+            color: цвет;
+            background-color: цвет;
+            border: 1px solid цвет;
+            width: 100px;
+            height: 100px;
+            
+          }
+
+
+
+      <form action="https://echo.htmlacademy.ru/courses" method="get">
+        <input type="text" name="search" required>
+        <input type="checkbox" name="search">
+        <input type="file" name="search">
+        <input type="hidden" name="search" placeholder="Текст подсказки">
+
+        <input type="radio" name="NAME1" value="varA">
+        <input type="radio" name="NAME1" value="varB" checked>
+
+        <textarea>
+
+        <select name="theme" multiple> 
+          <optgroup label="Группа вариантов 1">
+            <option value="light">Светлая тема</option>
+            <option value="dark">Тёмная тема</option>
+          </optgroup>
+          ...
+        </select>
+
+        <input type="submit" name="search">
+        <input type="date">
+        <input type="time">
+        datetime-local
+        <input type="range" min="1" max="10">
+
+                <input type="text" readonly>
+                <input type="text" disabled>
+                <input type="text" autocomplete="off" tabindex="3">
+                localStorage
+
+        <fieldset> - группировка полей формы
+          <legend>Заголовок группы</legend>
+        </fieldset>
+
+        tel
+        <input type="email">
+        <input type="url">  
+        <input type="color">
+
+        <output name="sum">[значение по умолчанию]</output>
+
+        <datalist id="browsers">
+          <option value="Firefox"></option>
+          <option value="Chrome"></option>
+          <option value="Safari"></option>
+        </datalist>
+
+        <input type="number">
+        <input type="search" autofocus>
+
+        <input type="reset" value="Сбросить">
+        <input type="button" value="Кнопка"> - для JS
+         <button>Календарь <img src="calend.png" alt=""></button>  можно кнопку фото добавить
+        поля формы
+
+        <label>
+          Подпись <input type="text" name="username" id="user-field-id">
+        </label>
+            <label for="user-field-id">Имя пользователя</label>
+
+      </form>
+        
+
+    </section>
+
+  <footer>  В привычном понимании это подвал сайта,
+
+  </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
