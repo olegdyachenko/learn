@@ -1,0 +1,140 @@
+body {
+    margin: 0;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+}
+
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    width: 1160px;
+    height: 100%;
+    margin: auto;
+
+}
+
+/*Header*/
+
+header {
+    height: 550px;
+    background-image: url("img/wheat.jpg");
+    padding: 0px 20px 0px 20px;
+    /* filter:brightness(30%) */
+}
+
+.navigation {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    column-gap: 60px;
+    /* justify-content: center; */
+    align-items: center;
+
+    padding: 60px 170px 60px 170px;
+}
+
+.navigation-list {
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-around; */
+    justify-content: space-between;
+    /* align-items: center; */
+
+    border-top: 1px solid rgba(165, 163, 163, 0.3);
+    border-bottom: 1px solid rgba(165, 163, 163, 0.3);
+}
+
+.navigation-item {
+    list-style-type: none;
+}
+
+.navigation-link {
+    font-size: 20px;
+    color: white;
+    text-transform: uppercase;
+
+    display: block;
+    margin: 5px;
+    padding: 10px 4px 10px 4px;
+
+    text-decoration: none;
+    /* background-color: rgba(173, 12, 12, 0.3); */
+}
+
+.navigation-link:link,
+.navigation-link:visited,
+.navigation-link:hover,
+.navigation-link:active {
+    color: white;
+}
+
+.navigation-link.active{
+    background-color: rgba(228, 218, 218, 0.3);
+    border-radius: 5px;
+}
+
+.title {
+    font-size: 80px;
+    font-weight: 700;
+    text-align: center;
+    color: white;
+}
+
+
+/*Header END*/
+
+/*newProducts*/
+
+.newProducts{
+    height: 1090px;
+    padding: 0px 170px 110px 170px;
+}
+
+.textNewProducts{
+    font-size: 50px;
+    font-weight: 700;
+    margin: 90px 0px 90px 0px;
+}
+.products{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+   
+    
+}
+
+.product{
+    border-right: 1px solid rgba(165, 163, 163, 0.3);
+    /* border-right: 1px solid red; */
+}
+
+.card-title{
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.card-detail{
+    
+    /* display:flex; */
+    /* flex-direction: column; */
+}
+.image1{
+    margin-bottom: 40px;
+}
+.table-info{
+    border-collapse: collapse;
+}
+td{
+    margin:0;
+    padding:10px;
+    font-size: 25px;
+    font-weight: 400;
+    text-transform: uppercase;
+    border: 1px solid red;
+}
+
+/*newProducts END*/
